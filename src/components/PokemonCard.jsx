@@ -24,7 +24,7 @@ PokemonCard.propTypes = {
         imgSrc: PropTypes.img,
     }).isRequired,
 
-}
+};
 
 
 export default PokemonCard;
