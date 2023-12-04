@@ -1,37 +1,25 @@
-// NavBar.jsx gère l'affichage des boutons "précédent" et "suivant"
-
-
+import React from "react";
 function NavBar({ pokemonIndex, setPokemonIndex, pokemonList }) {
-
-  const handleClickPrevious = () => {
-    if (pokemonIndex > 0) {
-      setPokemonIndex(pokemonIndex - 1);
-    }
-
-  }
-
-  const handleClickNext = () => {
-    if (pokemonIndex < pokemonList.length - 1) {
-      setPokemonIndex(pokemonIndex + 1);
-    }
-  }
+  // const handleClick = () => {
+  //   setPokemonIndex(index)
+  // }
 
 
   return (
+
     <nav>
       {
-        pokemonIndex > 0 && (
-          <button onClick={handleClickPrevious}>Précédent</button>
-        )
+        pokemonList.map((pokemon, index) => (
+          <button key={pokemon.name} onClick={() => setPokemonIndex(index)}>
+            {pokemon.name}
+          </button>
+          //   <button key={index} onClick={handleClick}>
+          //   {pokemon.name}
+          // </button>
+        ))
       }
+    </nav >
 
-
-      {
-        pokemonIndex < pokemonList.length - 1 && (
-          <button onClick={handleClickNext}>Suivant</button>
-        )
-      }
-    </nav>
   )
 }
 
